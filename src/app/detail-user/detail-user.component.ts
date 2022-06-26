@@ -20,7 +20,7 @@ export class DetailUserComponent implements OnInit {
     public datepipe: DatePipe) { }
 
   ngOnInit(): void {
-    this.id = localStorage.getItem('editUserId');
+    this.id = localStorage.getItem('detailUserId');
     this.userService.getUserById(this.id)
       .subscribe(data =>{
         let datas = data

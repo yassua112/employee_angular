@@ -4,42 +4,67 @@
   <div class="content">
     <div class="col-md-12">
       <h2 class="text-center">Add User</h2>
-      <form [formGroup]="addForm">
-
+      <form [formGroup]="addForm">        
+        
+        <div *ngIf="addForm.controls['username'].errors">
+          <small class="text-danger">username email is required</small>
+        </div>
         <div class="form-group">
           <input formControlName="username" required placeholder="User name" name="username" class="form-control"
             id="username">
+            
         </div>
-
+        
+        <div *ngIf="addForm.controls['firstName'].errors">
+          <small class="text-danger">firstName email is required</small>
+        </div>
         <div class="form-group">
           <input formControlName="firstName" required placeholder="First Name" name="firstName" class="form-control"
             id="firstName">
         </div>
 
+        <div *ngIf="addForm.controls['lastName'].errors">
+          <small class="text-danger">lastName email is required</small>
+        </div>
         <div class="form-group">
           <input formControlName="lastName" required placeholder="Last name" name="lastName" class="form-control"
             id="lastName">
         </div>
 
+          <div *ngIf="addForm.controls['email'].errors">
+            <small class="text-danger">email email is required</small>
+          </div>
         <div class="form-group">
           <input type="email" formControlName="email" required placeholder="Email" name="email" class="form-control"
             id="email">
         </div>
 
+          <div *ngIf="addForm.controls['birdDate'].errors">
+            <small class="text-danger">birdDate email is required</small>
+          </div>
         <div class="form-group">
           <input type="date" formControlName="birdDate" required placeholder="birdDate" name="birdDate"
             class="form-control" id="birdDate">
         </div>
 
+          <div *ngIf="addForm.controls['basicSallary'].errors">
+            <small class="text-danger">basicSallary email is required</small>
+          </div>
         <div class="form-group">
           <input type="number" formControlName="basicSallary" required placeholder="Basic Sallary" name="basicSallary"
             class="form-control" id="basicSallary">
         </div>
 
+          <div *ngIf="addForm.controls['status'].errors">
+            <small class="text-danger">status email is required</small>
+          </div>
         <div class="form-group">
           <input formControlName="status" required placeholder="Status" name="status" class="form-control" id="staus">
         </div>
 
+          <div *ngIf="addForm.controls['group'].errors">
+            <small class="text-danger">group email is required</small>
+          </div>
         <div class="form-group">
         <mat-form-field>
         <mat-label>group</mat-label>
@@ -51,13 +76,16 @@
         </mat-form-field>
       </div>
       
+        <div *ngIf="addForm.controls['description'].errors">
+            <small class="text-danger">description email is required</small>
+          </div>
         <div class="form-group">
             <input type="date" formControlName="description" required placeholder="description" name="description"
             class="form-control" id="description">
         </div>
 
         <div>
-          <button class="btn btn-primary" (click)="onSubmit()">Update</button>
+          <button class="btn btn-primary" (click)="onSubmit()" [disabled]="!addForm.valid">Add</button>
           <button class="btn btn-secondary" (click)="backList()">Cencel</button>
         </div>
       </form>

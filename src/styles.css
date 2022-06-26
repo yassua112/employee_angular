@@ -21,3 +21,10 @@ body {
   ::ng-deep .mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-outline {
     opacity: 2;
     }
+
+    .mat-form-field-infix {
+      display: block;
+      position: relative;
+      min-width: 0;
+      width: 548px;
+  }

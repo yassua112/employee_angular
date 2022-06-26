@@ -1,67 +1,95 @@
-
 <div class="example-container">
   <div class="row">
     <div class="content">
       <div class="col-md-12">
         <h2 class="text-center">Edit User</h2>
         <form [formGroup]="editForm">
-  
-          <div class="form-group">
-            <input formControlName="username" required placeholder="User name" name="username" class="form-control"  value={{detail_by_id?.username}}
-              id="username">
+
+          <div *ngIf="editForm.controls['username'].errors">
+            <small class="text-danger">username email is required</small>
           </div>
-  
           <div class="form-group">
-            <input formControlName="firstName" required placeholder="First Name" name="firstName" class="form-control" value={{detail_by_id?.firstName}}
-              id="firstName">
+            <input formControlName="username" placeholder="User name" name="username" class="form-control"
+              [ngModel]="detail_by_id?.username" id="username">
           </div>
-  
-          <div class="form-group">
-            <input formControlName="lastName" required placeholder="Last name" name="lastName" class="form-control" value={{detail_by_id?.lastName}}
-              id="lastName">
+
+          <div *ngIf="editForm.controls['firstName'].errors">
+            <small class="text-danger">firstName email is required</small>
           </div>
-  
           <div class="form-group">
-            <input type="email" formControlName="email" required placeholder="Email" name="email" class="form-control" value={{detail_by_id?.email}}
-              id="email">
+            <input formControlName="firstName" placeholder="First Name" name="firstName" class="form-control"
+              [ngModel]="detail_by_id?.firstName" id="firstName">
           </div>
-  
-          <div class="form-group">
-            <input type="date" formControlName="birdDate" required placeholder="birdDate" name="birdDate" value={{detail_by_id?.birdDate}}
-              class="form-control" id="birdDate">
+
+          <div *ngIf="editForm.controls['lastName'].errors">
+            <small class="text-danger">lastName email is required</small>
           </div>
-  
           <div class="form-group">
-            <input formControlName="basicSallary" required placeholder="Basic Sallary" name="basicSallary" value={{detail_by_id?.basicSallary}}
-              class="form-control" id="basicSallary">
+            <input formControlName="lastName" placeholder="Last name" name="lastName" class="form-control"
+              [ngModel]="detail_by_id?.lastName" id="lastName">
           </div>
-  
-          <div class="form-group">
-            <input formControlName="status" required placeholder="Status" name="status" class="form-control" id="status" value={{detail_by_id?.status}} >
+
+          <div *ngIf="editForm.controls['email'].errors && editForm.controls['email'].errors['pattern']">
+            <small class="text-danger">email email is required</small>
+            <small class="text-danger" *ngIf="editForm.controls['email'].errors['pattern']">Please provide a valid email
+              address</small>
           </div>
-  
           <div class="form-group">
-          <mat-form-field>
-          <mat-label>group</mat-label>
-            <mat-select [(value)]="selected">
-              <mat-option *ngFor="let group of group_data" [value]="group.value" >
-                {{group.viewValue}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-        
-          <div class="form-group">
-              <input type="date" formControlName="description" required placeholder="description" name="description" value={{detail_by_id?.description}}
-              class="form-control" id="description">
+            <input type="email" formControlName="email" placeholder="Email" name="email" class="form-control"
+              [ngModel]="detail_by_id?.email" id="email">
           </div>
-  
+
+          <div *ngIf="editForm.controls['birdDate'].errors">
+            <small class="text-danger">birdDate email is required</small>
+          </div>
+          <div class="form-group">
+            <input type="date" formControlName="birdDate" placeholder="birdDate" name="birdDate"
+              [ngModel]="detail_by_id?.birdDate" class="form-control" id="birdDate">
+          </div>
+
+          <div *ngIf="editForm.controls['basicSallary'].errors">
+            <small class="text-danger">basicSallary email is required</small>
+          </div>
+          <div class="form-group">
+            <input formControlName="basicSallary" placeholder="Basic Sallary" name="basicSallary"
+              [ngModel]="detail_by_id?.basicSallary" class="form-control" id="basicSallary">
+          </div>
+
+          <div *ngIf="editForm.controls['status'].errors">
+            <small class="text-danger">status email is required</small>
+          </div>
+          <div class="form-group">
+            <input formControlName="status" placeholder="Status" name="status" class="form-control" id="status"
+              [ngModel]="detail_by_id?.status">
+          </div>
+
+          <div *ngIf="editForm.controls['group'].errors">
+            <small class="text-danger">group email is required</small>
+          </div>
+          <div class="form-group">
+            <mat-form-field>
+              <mat-select [(value)]="selected" formControlName="group">
+                <mat-option *ngFor="let group of group_data" [value]="group.value">
+                  {{group.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div *ngIf="editForm.controls['description'].errors">
+            <small class="text-danger">description is required</small>
+          </div>
+          <div class="form-group">
+            <input type="date" formControlName="description" placeholder="description" name="description"
+              [ngModel]="detail_by_id?.description" class="form-control" id="description">
+          </div>
+
           <div>
-            <button class="btn btn-primary" (click)="updateDataEmployee()">Update</button>
-            <button class="btn btn-secondary" (click)="backList()">Cencel</button>
+            <button class="btn btn-primary" (click)="updateDataEmployee()" [disabled]="!editForm.valid">Update</button>
+            <button class="btn btn-secondary" (click)="backList()">Cancel</button>
           </div>
         </form>
       </div>
     </div>
   </div>
-  </div>
+</div>
