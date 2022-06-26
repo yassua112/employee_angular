@@ -1,0 +1,27 @@
+<div class="row cobs">
+    <div class="col-md-12 col-md-offset-2">
+      <h3>Welcome to Employee Management</h3>
+      <p>Login in. To see it in action.</p>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+         
+          <input placeholder="Email" type="email" class="form-control" formControlName="email" required id="email">
+          <!-- <div *ngIf="submitted && loginForm.controls.email.errors" class="error">
+            <div *ngIf="loginForm.controls.email.errors.required">Email is required</div>
+          </div> -->
+        </div>
+        <div class="form-group">
+         
+          <input placeholder="Password" type="password" class="form-control" formControlName="password" required id="pwd">
+          <!-- <div *ngIf="submitted && loginForm.controls.password.errors" class="error">
+            <div *ngIf="loginForm.controls.password.errors.required">Password is required</div>
+          </div> -->
+        </div>
+        <button class="btn btn-default">Login</button>
+        <div *ngIf="invalidLogin" class="error">
+          <div>Invalid credentials.</div>
+        </div>
+      </form>
+    </div>
+  </div>
+  

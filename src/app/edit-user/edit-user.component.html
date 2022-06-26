@@ -1,0 +1,67 @@
+
+<div class="example-container">
+  <div class="row">
+    <div class="content">
+      <div class="col-md-12">
+        <h2 class="text-center">Edit User</h2>
+        <form [formGroup]="editForm">
+  
+          <div class="form-group">
+            <input formControlName="username" required placeholder="User name" name="username" class="form-control"  value={{detail_by_id?.username}}
+              id="username">
+          </div>
+  
+          <div class="form-group">
+            <input formControlName="firstName" required placeholder="First Name" name="firstName" class="form-control" value={{detail_by_id?.firstName}}
+              id="firstName">
+          </div>
+  
+          <div class="form-group">
+            <input formControlName="lastName" required placeholder="Last name" name="lastName" class="form-control" value={{detail_by_id?.lastName}}
+              id="lastName">
+          </div>
+  
+          <div class="form-group">
+            <input type="email" formControlName="email" required placeholder="Email" name="email" class="form-control" value={{detail_by_id?.email}}
+              id="email">
+          </div>
+  
+          <div class="form-group">
+            <input type="date" formControlName="birdDate" required placeholder="birdDate" name="birdDate" value={{detail_by_id?.birdDate}}
+              class="form-control" id="birdDate">
+          </div>
+  
+          <div class="form-group">
+            <input formControlName="basicSallary" required placeholder="Basic Sallary" name="basicSallary" value={{detail_by_id?.basicSallary}}
+              class="form-control" id="basicSallary">
+          </div>
+  
+          <div class="form-group">
+            <input formControlName="status" required placeholder="Status" name="status" class="form-control" id="status" value={{detail_by_id?.status}} >
+          </div>
+  
+          <div class="form-group">
+          <mat-form-field>
+          <mat-label>group</mat-label>
+            <mat-select [(value)]="selected">
+              <mat-option *ngFor="let group of group_data" [value]="group.value" >
+                {{group.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        
+          <div class="form-group">
+              <input type="date" formControlName="description" required placeholder="description" name="description" value={{detail_by_id?.description}}
+              class="form-control" id="description">
+          </div>
+  
+          <div>
+            <button class="btn btn-primary" (click)="updateDataEmployee()">Update</button>
+            <button class="btn btn-secondary" (click)="backList()">Cencel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>

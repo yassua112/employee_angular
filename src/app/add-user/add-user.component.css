@@ -1,0 +1,32 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.mb-10 {
+    margin-bottom: 20px;
+}
+.content {
+    margin: auto;
+    margin-top:100px;
+    width: 30%;
+}
+
+body { 
+    font-family: Roboto, Arial, sans-serif;
+    margin: 1;
+  }
+  
+.basic-container {
+padding: 30px;
+}
+
+.version-info {
+font-size: 8pt;
+float: right;
+}
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-outline {
+opacity: 2;
+}
+
+::ng-deep .md-select {
+    border: 1px solid #cbcbcb;
+ }
